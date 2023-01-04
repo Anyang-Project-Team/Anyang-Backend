@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    include:
+       - docker
+      #- local
+  jpa:
+    hibernate:
+      ddl-auto : create
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    show_sql: true
+
+logging:
+  level:
+    org:
+      hibernate: info
