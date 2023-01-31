@@ -31,6 +31,7 @@ public class ImageController {
     @ResponseStatus(HttpStatus.OK)
     public List<Image> readAllImage() {
         return IMAGE_SERVICE.findALLImage();
+
     }
 
 

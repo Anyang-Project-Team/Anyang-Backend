@@ -6,28 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 
 public class UserService {
-    @Autowired
-    UserRepository
+        @Autowired
+        UserRepository userRepository; //userserive-userrepo의존성 설정
+
+    //*****Create*****
     public UserDTO insertUser(UserDTO user){
-        users.add(user);
-        return user;
+        return userRepository.insertUser(user);
     }
-    //read code
-    public static List<UserDTO> getAllUsers(){
+
+    //Read 1.전체리스트 조회 2. 한 유저 조회
+    //1
+    public List<UserDTO> getAllUsers(){
         return UserRepository.getAllUsers();
     }
-    public static UserDTO getUserByUserID(String userid){
+    //2
+    public UserDTO getUserByUserID(String userid){ //2
         return UserRepository.getUserByUserID(userid);
     }
 
-    public static UserDTO UpdateUserID(String userid){
-        return UserRepository.UpdateUserID(userid);
-    }
+    //*****Update*****
 
+    public void UpdateUserID(String userid, UserDTO user){
+        userRepository.updateUserId(userid, user);
+    }
+    //*****DELETE*****
     public void deleteUser(String userid){
-        return UserRepository.deleteUser(userid);
+        UserRepository.deleteUser(userid);
     }
 }
